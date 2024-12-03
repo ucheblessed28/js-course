@@ -182,6 +182,112 @@ const age = 25;     // Variable that cannot change
 var city = "Paris"; // Older way to declare a variable
 console.log(name, age, city);
 ```
+---
+
+### The cons of using ```var```
+
+Using `var` to declare variables in JavaScript has several disadvantages compared to the modern `let` and `const`. These cons stem from how `var` handles scope, hoisting, and reassignment. Here’s a breakdown:
+
+---
+
+### **1. Scope Issues**
+- **`var` is function-scoped**: Variables declared with `var` are confined to the function they are defined in, not the block.
+- This means `var` ignores block-level scope, which can lead to unexpected behaviors.
+
+#### Example:
+```javascript
+if (true) {
+  var message = "Hello";
+}
+console.log(message); // "Hello" (Accessible even outside the if block)
+```
+With `let`:
+```javascript
+if (true) {
+  let message = "Hello";
+}
+console.log(message); // Error: message is not defined
+```
+
+**Why this is bad:** Variables declared inside blocks may unintentionally affect code outside the block when using `var`.
+
+---
+
+### **2. Hoisting Behavior**
+- Variables declared with `var` are hoisted to the top of their scope but **are not initialized**. This allows you to use a `var` variable before its declaration, leading to confusing behavior.
+
+#### Example:
+```javascript
+console.log(greeting); // undefined (hoisted, but uninitialized)
+var greeting = "Hi!";
+```
+With `let`:
+```javascript
+console.log(greeting); // Error: Cannot access 'greeting' before initialization
+let greeting = "Hi!";
+```
+
+**Why this is bad:** It can make debugging difficult because code seems to run in an unexpected order.
+
+---
+
+### **3. Re-declaration**
+- Variables declared with `var` can be re-declared within the same scope, which can overwrite variables unintentionally.
+
+#### Example:
+```javascript
+var name = "Alice";
+var name = "Bob"; // No error
+console.log(name); // "Bob"
+```
+With `let`:
+```javascript
+let name = "Alice";
+let name = "Bob"; // Error: Identifier 'name' has already been declared
+```
+
+**Why this is bad:** Re-declaration can lead to bugs if you accidentally reuse a variable name.
+
+---
+
+### **4. Lack of Temporal Dead Zone**
+- `let` and `const` have a **temporal dead zone** that prevents variables from being used before they are declared. `var` does not, which allows you to access variables before their declaration.
+
+#### Example:
+```javascript
+console.log(myVar); // undefined (accessible before declaration)
+var myVar = 10;
+```
+With `let`:
+```javascript
+console.log(myVar); // Error: Cannot access 'myVar' before initialization
+let myVar = 10;
+```
+
+**Why this is bad:** Accessing variables before declaration can lead to undefined or erroneous behavior.
+
+---
+
+### **When to Use `let` and `const` Instead**
+
+- **Use `let`:** When you need a variable that can change (reassignable) but still respect block scope.
+- **Use `const`:** When you want to declare a variable that will not change.
+
+---
+
+### **Conclusion**
+
+`var` is largely **deprecated** in modern JavaScript development because it:
+
+1. Ignores block scope.
+2. Causes confusion with hoisting and re-declaration.
+3. Is less predictable and harder to debug.
+
+Using `let` and `const` provides cleaner, safer, and more predictable code. **Avoid `var` in new projects unless there’s a specific legacy requirement.**
+
+Let’s keep moving! 🚀 We'll continue expanding on **Week 1: JavaScript Basics**, diving into **loops** and **basic functions** so we can start building more dynamic code.
+
+---
 
 ---
 
@@ -281,102 +387,130 @@ if (myAge >= 18) {
 }
 ```
 
+## **Week 1: JavaScript Basics (Part 2)**
+
+### **8. Loops**
+Loops let us repeat actions in our code. They’re super useful when you want to execute a block of code multiple times without writing it repeatedly.
+
+#### **Types of Loops**
+1. **`for` Loop**:
+   Use when you know how many times to repeat the code.
+
+   **Example:**
+   ```javascript
+   for (let i = 1; i <= 5; i++) {
+     console.log("Count: " + i);
+   }
+   ```
+   **How it works:**
+   - `let i = 1`: Start at 1.
+   - `i <= 5`: Run the loop as long as `i` is less than or equal to 5.
+   - `i++`: Increment `i` by 1 after each iteration.
+
+2. **`while` Loop**:
+   Use when you don’t know the exact number of iterations but have a condition to meet.
+
+   **Example:**
+   ```javascript
+   let count = 1;
+   while (count <= 5) {
+     console.log("Count: " + count);
+     count++; // Increment count
+   }
+   ```
+
+3. **`do-while` Loop**:
+   Executes the code **at least once**, even if the condition is false.
+
+   **Example:**
+   ```javascript
+   let count = 6;
+   do {
+     console.log("Count: " + count);
+     count++;
+   } while (count <= 5);
+   ```
+
 ---
 
-### The cons of using ```var```
+### **9. Functions**
+Functions let you write reusable code. They take inputs (parameters), perform actions, and can return outputs.
 
-Using `var` to declare variables in JavaScript has several disadvantages compared to the modern `let` and `const`. These cons stem from how `var` handles scope, hoisting, and reassignment. Here’s a breakdown:
-
----
-
-### **1. Scope Issues**
-- **`var` is function-scoped**: Variables declared with `var` are confined to the function they are defined in, not the block.
-- This means `var` ignores block-level scope, which can lead to unexpected behaviors.
-
-#### Example:
+#### **Defining a Function**
 ```javascript
-if (true) {
-  var message = "Hello";
+function greet(name) {
+  console.log("Hello, " + name + "!");
 }
-console.log(message); // "Hello" (Accessible even outside the if block)
 ```
-With `let`:
+- **`greet`** is the function name.
+- **`name`** is a parameter (input).
+
+#### **Calling a Function**
 ```javascript
-if (true) {
-  let message = "Hello";
+greet("Alice"); // Outputs: Hello, Alice!
+greet("Bob");   // Outputs: Hello, Bob!
+```
+
+---
+
+#### **Returning Values**
+Functions can return a result for further use.
+```javascript
+function add(a, b) {
+  return a + b; // Returns the sum of a and b
 }
-console.log(message); // Error: message is not defined
-```
 
-**Why this is bad:** Variables declared inside blocks may unintentionally affect code outside the block when using `var`.
+let result = add(3, 7); // result is 10
+console.log(result);
+```
 
 ---
 
-### **2. Hoisting Behavior**
-- Variables declared with `var` are hoisted to the top of their scope but **are not initialized**. This allows you to use a `var` variable before its declaration, leading to confusing behavior.
-
-#### Example:
+#### **Arrow Functions**
+A shorter syntax for functions.
 ```javascript
-console.log(greeting); // undefined (hoisted, but uninitialized)
-var greeting = "Hi!";
-```
-With `let`:
-```javascript
-console.log(greeting); // Error: Cannot access 'greeting' before initialization
-let greeting = "Hi!";
-```
+const multiply = (a, b) => a * b;
 
-**Why this is bad:** It can make debugging difficult because code seems to run in an unexpected order.
+console.log(multiply(2, 3)); // Outputs: 6
+```
 
 ---
 
-### **3. Re-declaration**
-- Variables declared with `var` can be re-declared within the same scope, which can overwrite variables unintentionally.
+### **10. Combining Loops and Functions**
+Let’s build something fun! 🎉
 
-#### Example:
+#### **Example: Print Multiplication Table**
 ```javascript
-var name = "Alice";
-var name = "Bob"; // No error
-console.log(name); // "Bob"
-```
-With `let`:
-```javascript
-let name = "Alice";
-let name = "Bob"; // Error: Identifier 'name' has already been declared
-```
+function printTable(number) {
+  for (let i = 1; i <= 10; i++) {
+    console.log(number + " x " + i + " = " + number * i);
+  }
+}
 
-**Why this is bad:** Re-declaration can lead to bugs if you accidentally reuse a variable name.
+printTable(5); // Outputs the multiplication table of 5
+```
 
 ---
 
-### **4. Lack of Temporal Dead Zone**
-- `let` and `const` have a **temporal dead zone** that prevents variables from being used before they are declared. `var` does not, which allows you to access variables before their declaration.
-
-#### Example:
-```javascript
-console.log(myVar); // undefined (accessible before declaration)
-var myVar = 10;
-```
-With `let`:
-```javascript
-console.log(myVar); // Error: Cannot access 'myVar' before initialization
-let myVar = 10;
-```
-
-**Why this is bad:** Accessing variables before declaration can lead to undefined or erroneous behavior.
+### **11. Practice Exercises**
+1. **Counting Numbers**: Write a `for` loop that prints numbers from 1 to 20.
+2. **Even or Odd**: Write a `function` that checks if a number is even or odd.
+   - Input: A number.
+   - Output: "Even" or "Odd."
+   - **Hint: Use the modulus operator `%`.**
+3. **Sum of Numbers**: Write a function that calculates the sum of all numbers from 1 to a given number `n`.
+   - **Example:**
+     - Input: `5`.
+     - Output: `1 + 2 + 3 + 4 + 5 = 15`.
 
 ---
 
-### **When to Use `let` and `const` Instead**
-- **Use `let`:** When you need a variable that can change (reassignable) but still respect block scope.
-- **Use `const`:** When you want to declare a variable that will not change.
+#### **Challenge: FizzBuzz Game**
+Print numbers from 1 to 30, but:
+- Print "Fizz" for multiples of 3.
+- Print "Buzz" for multiples of 5.
+- Print "FizzBuzz" for multiples of both 3 and 5.
+
+**Hint: Use the `if-else` statements with modulus (`%`).**
 
 ---
-
-### **Conclusion**
-`var` is largely **deprecated** in modern JavaScript development because it:
-1. Ignores block scope.
-2. Causes confusion with hoisting and re-declaration.
-3. Is less predictable and harder to debug.
-
-Using `let` and `const` provides cleaner, safer, and more predictable code. **Avoid `var` in new projects unless there’s a specific legacy requirement.**
