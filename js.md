@@ -27,7 +27,7 @@
 - **Syntax and Variables**
   - `console.log()` for output.
   - Declaring variables: `let`, `const`, `var`.
-  - Data types: string, integer, floats, boolean, null, undefined.
+  - Data types: string, number, boolean, null, undefined.
 - **Operators**
   - Arithmetic (`+`, `-`, `*`, `/`, `%`).
   - Assignment (`=`, `+=`, `-=`).
