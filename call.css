@@ -1,0 +1,118 @@
+/* ======== VARIABLES ======== */
+:root{
+    --ff: "Segoe UI", system-ui, sans-serif;
+}
+
+
+/* ======== RESET ======== */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: var(--ff);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    height: 100svh;
+    background: radial-gradient(#3c3c3c, #000);
+}
+
+p {
+    max-width: 75ch;
+    text-wrap: pretty;
+}
+
+.sr-only {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+
+
+/* ======== CSS ======== */
+
+
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*======== CALCULATOR ======== */
+
+#calculator{
+    font-family: var(--ff);
+    width: 320px;
+    background: #202020;
+    padding: 4px;
+    padding-top: 16px;
+    border-radius: 9px;
+    box-shadow: 0 0 25px #fff2;
+}
+#calculatorButtons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 50px;
+    gap: 2px;
+    margin-top: 16px;
+}
+#calculatorButtons button{
+    font-family: var(--ff);
+    border: none;
+    border-radius: 5px;
+    color: #f7f7f7;
+    background: #323232;
+    font-size: 20px;
+}
+#calculatorButtons :is(button:hover, .calculator-number){
+    background: #3c3c3c;
+}
+#calculatorButtons .calculator-number:hover{
+    background: #323232;
+}
+#calculatorButtons .calculator-equal{
+    color: #143141;
+    background: #4cc2ff;
+}
+#calculatorButtons .calculator-equal:hover{
+    background: #47b1e8;
+}
+
+/* ======== INPUT NUMBER ======== */
+#calculator input{
+    font-family: var(--ff);
+    border: none;
+    background: transparent;
+    color: #fff;
+    text-align: right;
+    width: 300px;
+    transform: translateX(5px);
+    font-size: 50px;
+    font-weight: 600;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* ======== CALCUL ======== */
+#calculatorCalculScreen{
+    font-size: 14px;
+    color: #a1a1a1;
+    text-align: right;
+    padding-inline: 10px;
+    overflow-x: hidden;
+}

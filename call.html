@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="xyz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A beautiful calculator.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="call.css">
+    <script src="call.js" defer></script>
+</head>
+<body>
+    <main>
+
+        <!-- ======== CALCULATOR ======== -->
+        <div id="calculator">
+
+            <!-- ======== CALCUL ======== -->
+            <p id="calculatorCalculScreen">&emsp;</p>
+
+            <!-- ======== INPUT NUMBER ======== -->
+            <label>
+                <h2 class="sr-only">Calculator screen</h2>
+                <input type="text" inputmode="numeric" value="0" id="calculatorNumber" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+            </label>
+
+            <!-- ======== BUTTONS ======== -->
+            <div id="calculatorButtons">
+                <button type="button" class="calculator-button" onclick="operationInstant('%');">&percnt;</button>
+                <button type="button" class="calculator-button span-2" onclick="operationInstant('pi');">&pi;</button>
+                <button type="button" class="calculator-button" onclick="clearAll();">AC</button>
+                <button type="button" class="calculator-button" onclick="delLastNumber();">&leftarrow;</button>
+
+                <button type="button" class="calculator-button" onclick="operationInstant('1/x');">1/&cross;</button>
+                <button type="button" class="calculator-button" onclick="operationInstant('x2');">&cross;&sup2;</button>
+                <button type="button" class="calculator-button" onclick="operationInstant('2/x');">&#x221A;x</button>
+                <button type="button" class="calculator-button" onclick="operation('/', this);">&divide;</button>
+
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(7);">7</button>
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(8);">8</button>
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(9);">9</button>
+                <button type="button" class="calculator-button" onclick="operation('x', this);">&times;</button>
+
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(4);">4</button>
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(5);">5</button>
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(6);">6</button>
+                <button type="button" class="calculator-button" onclick="operation('-', this);">&minus;</button>
+
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(1);">1</button>
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(2);">2</button>
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(3);">3</button>
+                <button type="button" class="calculator-button" onclick="operation('+', this);">&plus;</button>
+
+                <button type="button" class="calculator-button calculator-number" onclick="opInverse();">&plusmn;</button>
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber(0);">0</button>
+                <button type="button" class="calculator-button calculator-number" onclick="addNumber('.');">&comma;</button>
+                <button type="button" class="calculator-button calculator-equal" onclick="opEqual();">&equals;</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

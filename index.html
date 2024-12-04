@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript Basics</title>
-</head>
-<body>
-  <h1>Learning JavaScript</h1>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to JavaScript</title>
+  </head>
+  <body>
+    <h2 id="title">What Can JavaScript Do?</h2>
+
+    <p id="demo">Welcome to First Day in Class</p>
+
+    <button type="button" onclick="document.getElementById('demo').innerHTML = 'Welcome to JavaScript'">Click Me!</button>
+
+    <button type="button" onclick="document.getElementById('title').innerHTML = 'Netizens JavaScript Class'">See another change</button>
+
+    <div style="margin-top: 20px;">
+      <button onclick="document.getElementById('myImage').src='b2.jpg'">Sunset BG</button>
+
+      <img id="myImage" src="bg.jpg" style="width:100px">
+
+      <button onclick="document.getElementById('myImage').src='hero.jpg'">Abstract BG</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
