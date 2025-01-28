@@ -14,7 +14,7 @@ let alice = {
     favFood: 'Grapes'
 }
 
-console.log(michael.favColor, alice.favColor,);
+// console.log(michael.favColor, alice.favColor,);
 
 let sandra = {
     firstname: 'Sandra',
@@ -32,5 +32,11 @@ let person = {
     },
   };
   
-  console.log(person.greet());  // Output: Hello, my name is John Doe`
+//   console.log(person.greet());  // Output: Hello, my name is John Doe`
+
+  console.log(Object.entries(michael));
+  console.log(Object.entries(alice));
+  console.log(Object.entries(person));
+  
+
 
