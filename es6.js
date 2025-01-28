@@ -1,41 +1,19 @@
-// const sum = (a, b) => a + b;
+let food = ['afang', 'egusi', 'rice', 'beans', 'egg']
+console.log(food);
 
-// console.log(sum(5, 10)); // Outputs: 15
+// console.log(food.slice(1, 4))
 
-// // ================================
+let newFood = food.splice(1, 2, 'bread', 'fish');
+console.log(food);
 
-// function add(a, b) {
-//     return a + b;
-// }
 
-// console.log(add(5, 10)); // Outputs: 15
 
-function Even(number) {
-    if (number % 2 === 0) {
-        return 'Even';
-    } else {
-        return 'Odd';
-    }
-}
+// let numbers = [1, 2, 3, 4, 5];
 
-console.log(Even(5));
-console.log(Even(10));
+// // Slice example
+// let sliced = numbers.slice(1, 4); // Start from index 1 to 4 (exclusive)
+// console.log(sliced); // Output: [2, 3, 4]
 
-// =================================================================
-
-const odd = (number) => number % 2 === 0 ? 'Even' : 'Odd';
-
-console.log(odd(5));
-
-// =================================================================
-
-function sumUp(n) {
-    if (n < 1) {
-        return 0;
-    }
-    return (n * (n + 1)) / 2    
-}
-
-console.log(sumUp(20));
-
-console.log(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 11 + 12 + 13 + 14 + 15 + 16 + 17 + 18 + 19 + 20)
+// // Splice example
+// numbers.splice(1, 2, 99, 100); // Removes 2 elements from index 1, adds 99 and 100
+// console.log(numbers); // Output: [1, 2, 99, 100, 5]
