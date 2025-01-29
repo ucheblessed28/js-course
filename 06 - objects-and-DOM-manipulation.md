@@ -101,14 +101,13 @@ console.log(Object.keys(user));   // Output: ["name", "age"]
 console.log(Object.values(user)); // Output: ["Alice", 25]
 console.log(Object.entries(user)); // Output: [["name", "Alice"], ["age", 25]]
 ```
+<br><br>
 
----
-
-### **2. DOM Manipulation**
+# **2. DOM Manipulation**
 
 The **DOM (Document Object Model)** is an interface that allows scripts to update the structure, style, and content of a webpage.
 
-#### **Selecting Elements**
+## **Selecting Elements**
 
 1. **`getElementById()`**: Selects an element by its ID.
 2. **`querySelector()`**: Selects the first matching element.
@@ -132,6 +131,7 @@ The **DOM (Document Object Model)** is an interface that allows scripts to updat
 ```
 
 ### JavaScript (script.js):
+
 ```javascript
 // Select the HTML element with the id "main"
 let element = document.getElementById("main");
@@ -167,7 +167,7 @@ In your case, you're reading the content of an element, but JavaScript can also 
 
 ---
 
-### **Changing Content**
+## **Changing Content**
 
 ### Updated HTML Structure:
 ```html
@@ -187,6 +187,7 @@ In your case, you're reading the content of an element, but JavaScript can also 
 ```
 
 ### Updated JavaScript (script.js):
+
 ```javascript
 // Select the HTML element with the id "message"
 let message = document.getElementById("message");
@@ -214,12 +215,14 @@ message.textContent = "The content has been updated!";
    **Note**: The page content on the screen changes immediately once this line of JavaScript is executed. The browser reflects this change instantly.
 
 ### Full Process:
+
 1. The HTML is loaded, and the `<p>` element is displayed with the text "This is a message."
 2. JavaScript executes (after the page is loaded) and selects the element with `id="message"`.
 3. The `textContent` of the paragraph is updated to "The content has been updated!".
 4. The page content updates, and the user sees the new message in the browser.
 
 ### DOM Manipulation Recap:
+
 This example demonstrates how we can **change** content using JavaScript. While `textContent` is used here to change the text inside an element, there are other ways to manipulate the DOM, such as:
 
 - **`innerHTML`**: Can be used to change the content of an element, but it allows HTML markup as well (e.g., adding a link or bold text).
@@ -230,18 +233,85 @@ This is a fundamental concept in JavaScript that makes web pages dynamic and int
 
 ---
 
-#### **Changing Styles**
+## **Changing Styles**
+
+### HTML Structure:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation - Changing Styles</title>
+</head>
+<body>
+    <div id="box" style="width: 100px; height: 100px;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+### JavaScript (script.js):
 
 ```javascript
-// HTML Example: <div id="box" style="width: 100px; height: 100px;"></div>
-
+// Select the HTML element with the id "box"
 let box = document.getElementById("box");
+
+// Change the background color of the box
 box.style.backgroundColor = "blue";
+
+// Change the border style of the box
 box.style.border = "2px solid black";
 ```
 
-**Explanation:**
-- Use the `style` property to change CSS styles dynamically.
+---
+
+### Explanation:
+
+1. **HTML Structure**:
+   - The HTML contains a `<div>` element with the `id="box"`. It has inline styles set in the `style` attribute to define the width and height of the `div`. The element is a square, 100px by 100px, but has no color or border yet.
+   
+2. **JavaScript Code**:
+   - **`document.getElementById("box")`**: Just like before, this line selects the element with the ID `"box"` and stores the reference to it in the `box` variable.
+   
+   - **`box.style.backgroundColor = "blue";`**: This line changes the background color of the box to **blue** by accessing the `style` property of the `div` and modifying the `backgroundColor` attribute.
+   
+   - **`box.style.border = "2px solid black";`**: This line modifies the border of the box by setting it to **2px solid black**. Again, we're using the `style` property to change the `border` CSS attribute.
+
+### What Happens:
+1. The HTML is loaded and the `div` is displayed as a 100px by 100px square with no color and no border.
+2. The JavaScript runs after the page is loaded:
+   - The background color of the `div` is changed to **blue**.
+   - A **black border** of `2px` width is applied around the box.
+3. The changes are reflected immediately in the browser, and you’ll see a blue box with a black border.
+
+### Full Process:
+1. When the page loads, you’ll see the `div` as a small square without color or borders.
+2. JavaScript is executed, and it modifies the styles of the `div` element dynamically.
+3. The visual appearance of the box is updated with the new background color and border.
+
+### DOM and Style Manipulation Recap:
+In this case, you're using JavaScript to dynamically change the **CSS styles** of an element. Instead of writing the styles in the `<style>` section of HTML or using an external CSS file, you directly manipulate the `style` property of an element in JavaScript.
+
+Here are a few more things you can do with the `style` property:
+
+- **Change text color**:
+   ```javascript
+   box.style.color = "white";  // Changes the text color inside the box
+   ```
+- **Change font size**:
+   ```javascript
+   box.style.fontSize = "20px";  // Changes the font size
+   ```
+- **Change width and height dynamically**:
+   ```javascript
+   box.style.width = "200px";  // Change width
+   box.style.height = "200px"; // Change height
+   ```
+
+This is a great way to interact with the visual properties of elements on your webpage, and it allows you to create interactive, dynamic user interfaces.
 
 ---
 
