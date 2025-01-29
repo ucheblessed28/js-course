@@ -32,11 +32,19 @@ button.addEventListener("click", function() {
         document.body.style.backgroundColor = "";
         document.body.style.color = "";
         button.textContent = "Dark Mode"; // Reset button text
+
+        // Set the button style for light mode (dark button)
+        button.style.backgroundColor = "black";
+        button.style.color = "white";
     } else {
         // Change to new style
         document.body.style.backgroundColor = "black";
         document.body.style.color = "white";
         button.textContent = "Light Mode"; // Change button text
+
+        // Set the button style for dark mode (light button)
+        button.style.backgroundColor = "white";
+        button.style.color = "black";
     }
 
     // Toggle the state
