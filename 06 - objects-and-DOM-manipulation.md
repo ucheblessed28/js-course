@@ -313,9 +313,146 @@ Here are a few more things you can do with the `style` property:
 
 This is a great way to interact with the visual properties of elements on your webpage, and it allows you to create interactive, dynamic user interfaces.
 
+## Changing More Styles
+
+### Full HTML and JavaScript Example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Body Styles</title>
+</head>
+<body>
+    <!-- Button that will trigger the style change -->
+    <button id="changeStyleBtn">Change Body Styles</button>
+
+    <script>
+        // Select the button element by its ID
+        let button = document.getElementById("changeStyleBtn");
+
+        // Add an event listener to the button
+        button.addEventListener("click", function() {
+            // Change the background color of the body to navy blue
+            document.body.style.backgroundColor = "navy";
+            
+            // Change the font color (text color) of the body to white
+            document.body.style.color = "white";
+        });
+    </script>
+</body>
+</html>
+```
+
 ---
 
-#### **Adding and Removing Classes**
+### Explanation:
+
+1. **HTML Structure**:
+   - We have a `<button>` element with the ID `changeStyleBtn`. This is the button that users will click to change the styles of the body.
+   
+2. **JavaScript Code**:
+   - **`let button = document.getElementById("changeStyleBtn");`**: This line selects the button element using its ID (`changeStyleBtn`).
+   
+   - **`button.addEventListener("click", function() {...});`**: We use `addEventListener` to listen for a "click" event on the button. When the button is clicked, the function inside the event listener is executed.
+   
+   - **`document.body.style.backgroundColor = "navy";`**: Inside the click event function, this line changes the background color of the entire body to **navy**.
+   
+   - **`document.body.style.color = "white";`**: This line changes the font (text) color of the body to **white**.
+
+### What Happens:
+- Initially, the page loads with the default styles.
+- When the user clicks the **"Change Body Styles"** button:
+   - The **background color** of the `body` changes to **navy blue**.
+   - The **font color** (text color) of the `body` changes to **white**.
+   
+### Full Process:
+1. When the page loads, you see the default styles (usually the background color is white, and the text is black).
+2. After the button is clicked, the styles change dynamically, giving the page a new look with a navy background and white text.
+
+### Enhancements:
+- You can add more styles, animations, or effects based on user interaction.
+- If you wanted to toggle the colors back to their original state (e.g., by clicking the button again), you could add a condition to check the current style and toggle it.
+
+
+## Reverting Background Color:
+
+### Updated Code with Toggle Functionality:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Body Styles</title>
+</head>
+<body>
+    <!-- Button that will trigger the style change -->
+    <button id="changeStyleBtn">Change Body Styles</button>
+
+    <script>
+        // Select the button element by its ID
+        let button = document.getElementById("changeStyleBtn");
+
+        // Variable to track the current state (if the style has been changed or not)
+        let isStyleChanged = false;
+
+        // Add an event listener to the button
+        button.addEventListener("click", function() {
+            if (isStyleChanged) {
+                // Revert to the original style
+                document.body.style.backgroundColor = "";
+                document.body.style.color = "";
+                button.textContent = "Change Body Styles"; // Reset button text
+            } else {
+                // Change to new style
+                document.body.style.backgroundColor = "navy";
+                document.body.style.color = "white";
+                button.textContent = "Revert to Original Styles"; // Change button text
+            }
+
+            // Toggle the state
+            isStyleChanged = !isStyleChanged;
+        });
+    </script>
+</body>
+</html>
+```
+
+### Explanation of Changes:
+
+1. **Tracking the Current State (`isStyleChanged`)**:
+   - We introduce a variable `isStyleChanged` that tracks whether the style has been changed or not.
+   - Initially, it's set to `false`, meaning the styles haven't been changed yet.
+
+2. **Condition to Toggle Styles**:
+   - Inside the `click` event listener, we use an `if` statement to check whether the style has already been changed (`isStyleChanged` is `true`).
+   - If the style has been changed (i.e., `isStyleChanged` is `true`):
+     - We **revert the styles** back to their original state by setting the background color and text color to empty strings (`""`). This effectively removes any inline styles applied to the `body`, reverting it to the default styles defined by the browser or CSS.
+     - The button text is also reset to "Change Body Styles" to indicate the next action.
+   - If the style hasn't been changed yet (`isStyleChanged` is `false`):
+     - We **apply the new styles** (navy background and white text).
+     - The button text is changed to "Revert to Original Styles" so the user knows that clicking it again will revert the changes.
+
+3. **Toggling the State**:
+   - After each button click, we toggle the `isStyleChanged` variable. This is done by setting it to the opposite value using `!isStyleChanged`. This allows the script to switch between the two states: one where the style is changed, and one where it is not.
+
+### What Happens:
+- Initially, the body has the default styles (white background, black text).
+- The first time you click the button, the background color changes to navy and the text color becomes white.
+- The button text changes to **"Revert to Original Styles"**.
+- If you click the button again, the styles revert to their original state, and the button text changes back to **"Change Body Styles"**.
+
+### Benefits:
+- This makes the page more interactive by allowing the user to toggle between two different styles with a single button.
+- The button also clearly communicates the current action by changing its text each time it’s clicked.
+
+---
+
+## **Adding and Removing Classes**
 
 ```javascript
 // HTML Example: <div id="container" class="hidden"></div>
