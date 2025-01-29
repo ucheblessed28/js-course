@@ -23,11 +23,11 @@ message.textContent = "The content has been updated!";
 let button = document.getElementById("darkMode");
 
 // Variable to track the current state (if the style has been changed or not)
-let isStyleChanged = false;
+let dark = false;
 
 // Add an event listener to the button
 button.addEventListener("click", function() {
-    if (isStyleChanged) {
+    if (dark) {
         // Revert to the original style
         document.body.style.backgroundColor = "";
         document.body.style.color = "";
@@ -48,5 +48,27 @@ button.addEventListener("click", function() {
     }
 
     // Toggle the state
-    isStyleChanged = !isStyleChanged;
+    dark = !dark;
 });
+
+// =============================================
+
+function myFunction() {
+    // Get the value of the input field with id="numb"
+    let x = document.getElementById("numb").value;
+    // If x is Not a Number or less than one or greater than 10
+    let text;
+    if (x < 10) {
+      text = "Number should be 10 or greater";
+    }
+    else if (x > 20) {
+        text = "Number should be 20 or less";
+    }
+    else if (isNaN(x)) {
+        text = "Input must be a Number or a string";
+    }
+    else {
+      text = "Input OK";
+    }
+    document.getElementById("demo").innerHTML = text;
+  }

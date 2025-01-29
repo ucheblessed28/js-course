@@ -398,11 +398,11 @@ This is a great way to interact with the visual properties of elements on your w
         let button = document.getElementById("darkMode");
 
         // Variable to track the current state (if the style has been changed or not)
-        let isStyleChanged = false;
+        let dark = false;
 
         // Add an event listener to the button
         button.addEventListener("click", function() {
-            if (isStyleChanged) {
+            if (dark) {
                 // Revert to the original style
                 document.body.style.backgroundColor = "";
                 document.body.style.color = "";
@@ -415,7 +415,7 @@ This is a great way to interact with the visual properties of elements on your w
             }
 
             // Toggle the state
-            isStyleChanged = !isStyleChanged;
+            dark = !dark;
         });
     </script>
 </body>
@@ -424,21 +424,21 @@ This is a great way to interact with the visual properties of elements on your w
 
 ### Explanation of Changes:
 
-1. **Tracking the Current State (`isStyleChanged`)**:
-   - We introduce a variable `isStyleChanged` that tracks whether the style has been changed or not.
+1. **Tracking the Current State (`dark`)**:
+   - We introduce a variable `dark` that tracks whether the style has been changed or not.
    - Initially, it's set to `false`, meaning the styles haven't been changed yet.
 
 2. **Condition to Toggle Styles**:
-   - Inside the `click` event listener, we use an `if` statement to check whether the style has already been changed (`isStyleChanged` is `true`).
-   - If the style has been changed (i.e., `isStyleChanged` is `true`):
+   - Inside the `click` event listener, we use an `if` statement to check whether the style has already been changed (`dark` is `true`).
+   - If the style has been changed (i.e., `dark` is `true`):
      - We **revert the styles** back to their original state by setting the background color and text color to empty strings (`""`). This effectively removes any inline styles applied to the `body`, reverting it to the default styles defined by the browser or CSS.
      - The button text is also reset to "Dark Mode" to indicate the next action.
-   - If the style hasn't been changed yet (`isStyleChanged` is `false`):
+   - If the style hasn't been changed yet (`dark` is `false`):
      - We **apply the new styles** (navy background and white text).
      - The button text is changed to "Light Mode" so the user knows that clicking it again will revert the changes.
 
 3. **Toggling the State**:
-   - After each button click, we toggle the `isStyleChanged` variable. This is done by setting it to the opposite value using `!isStyleChanged`. This allows the script to switch between the two states: one where the style is changed, and one where it is not.
+   - After each button click, we toggle the `dark` variable. This is done by setting it to the opposite value using `!dark`. This allows the script to switch between the two states: one where the style is changed, and one where it is not.
 
 ### What Happens:
 
