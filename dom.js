@@ -20,7 +20,7 @@ let message = document.getElementById("message");
 message.textContent = "The content has been updated!";
 
 // Select the button element by its ID
-let button = document.getElementById("changeStyleBtn");
+let button = document.getElementById("darkMode");
 
 // Variable to track the current state (if the style has been changed or not)
 let isStyleChanged = false;

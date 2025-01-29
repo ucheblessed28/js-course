@@ -327,11 +327,11 @@ This is a great way to interact with the visual properties of elements on your w
 </head>
 <body>
     <!-- Button that will trigger the style change -->
-    <button id="changeStyleBtn">Change Body Styles</button>
+    <button id="darkMode">Change Body Styles</button>
 
     <script>
         // Select the button element by its ID
-        let button = document.getElementById("changeStyleBtn");
+        let button = document.getElementById("darkMode");
 
         // Add an event listener to the button
         button.addEventListener("click", function() {
@@ -351,10 +351,10 @@ This is a great way to interact with the visual properties of elements on your w
 ### Explanation:
 
 1. **HTML Structure**:
-   - We have a `<button>` element with the ID `changeStyleBtn`. This is the button that users will click to change the styles of the body.
+   - We have a `<button>` element with the ID `darkMode`. This is the button that users will click to change the styles of the body.
    
 2. **JavaScript Code**:
-   - **`let button = document.getElementById("changeStyleBtn");`**: This line selects the button element using its ID (`changeStyleBtn`).
+   - **`let button = document.getElementById("darkMode");`**: This line selects the button element using its ID (`darkMode`).
    
    - **`button.addEventListener("click", function() {...});`**: We use `addEventListener` to listen for a "click" event on the button. When the button is clicked, the function inside the event listener is executed.
    
@@ -391,11 +391,11 @@ This is a great way to interact with the visual properties of elements on your w
 </head>
 <body>
     <!-- Button that will trigger the style change -->
-    <button id="changeStyleBtn">Change Body Styles</button>
+    <button id="darkMode">Change Body Styles</button>
 
     <script>
         // Select the button element by its ID
-        let button = document.getElementById("changeStyleBtn");
+        let button = document.getElementById("darkMode");
 
         // Variable to track the current state (if the style has been changed or not)
         let isStyleChanged = false;
