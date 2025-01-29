@@ -406,12 +406,12 @@ This is a great way to interact with the visual properties of elements on your w
                 // Revert to the original style
                 document.body.style.backgroundColor = "";
                 document.body.style.color = "";
-                button.textContent = "Change Body Styles"; // Reset button text
+                button.textContent = "Dark Mode"; // Reset button text
             } else {
                 // Change to new style
                 document.body.style.backgroundColor = "navy";
                 document.body.style.color = "white";
-                button.textContent = "Revert to Original Styles"; // Change button text
+                button.textContent = "Light Mode"; // Change button text
             }
 
             // Toggle the state
