@@ -323,11 +323,11 @@ This is a great way to interact with the visual properties of elements on your w
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Body Styles</title>
+    <title>Dark Mode</title>
 </head>
 <body>
     <!-- Button that will trigger the style change -->
-    <button id="darkMode">Change Body Styles</button>
+    <button id="darkMode">Dark Mode</button>
 
     <script>
         // Select the button element by its ID
@@ -364,7 +364,7 @@ This is a great way to interact with the visual properties of elements on your w
 
 ### What Happens:
 - Initially, the page loads with the default styles.
-- When the user clicks the **"Change Body Styles"** button:
+- When the user clicks the **"Dark Mode"** button:
    - The **background color** of the `body` changes to **navy blue**.
    - The **font color** (text color) of the `body` changes to **white**.
    
@@ -391,7 +391,7 @@ This is a great way to interact with the visual properties of elements on your w
 </head>
 <body>
     <!-- Button that will trigger the style change -->
-    <button id="darkMode">Change Body Styles</button>
+    <button id="darkMode">Dark Mode</button>
 
     <script>
         // Select the button element by its ID
@@ -432,19 +432,20 @@ This is a great way to interact with the visual properties of elements on your w
    - Inside the `click` event listener, we use an `if` statement to check whether the style has already been changed (`isStyleChanged` is `true`).
    - If the style has been changed (i.e., `isStyleChanged` is `true`):
      - We **revert the styles** back to their original state by setting the background color and text color to empty strings (`""`). This effectively removes any inline styles applied to the `body`, reverting it to the default styles defined by the browser or CSS.
-     - The button text is also reset to "Change Body Styles" to indicate the next action.
+     - The button text is also reset to "Dark Mode" to indicate the next action.
    - If the style hasn't been changed yet (`isStyleChanged` is `false`):
      - We **apply the new styles** (navy background and white text).
-     - The button text is changed to "Revert to Original Styles" so the user knows that clicking it again will revert the changes.
+     - The button text is changed to "Light Mode" so the user knows that clicking it again will revert the changes.
 
 3. **Toggling the State**:
    - After each button click, we toggle the `isStyleChanged` variable. This is done by setting it to the opposite value using `!isStyleChanged`. This allows the script to switch between the two states: one where the style is changed, and one where it is not.
 
 ### What Happens:
+
 - Initially, the body has the default styles (white background, black text).
 - The first time you click the button, the background color changes to navy and the text color becomes white.
-- The button text changes to **"Revert to Original Styles"**.
-- If you click the button again, the styles revert to their original state, and the button text changes back to **"Change Body Styles"**.
+- The button text changes to **"Light Mode"**.
+- If you click the button again, the styles revert to their original state, and the button text changes back to **"Dark Mode"**.
 
 ### Benefits:
 - This makes the page more interactive by allowing the user to toggle between two different styles with a single button.
